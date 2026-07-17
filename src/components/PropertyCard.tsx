@@ -9,7 +9,7 @@ interface PropertyCardProps {
     progressBar: number
     progressPercentage: number;
     statusBadge: string;
-    targetDate: Date;
+    targetGoLiveDate: string;
 }
 
 
@@ -21,7 +21,7 @@ export default function PropertyCard({
     progressBar,
     progressPercentage,
     statusBadge,
-    targetDate
+    targetGoLiveDate
 }: PropertyCardProps) {
 
     return (
@@ -30,7 +30,6 @@ export default function PropertyCard({
             <h2>{propertyName}</h2>
             <p>{location}</p>
             <p>{bedrooms} bedrooms</p>
-
         </div>
     )
 }

@@ -27,11 +27,11 @@ export default function Home() {
     <>
       <Header ownerName={ownerName} />
 
-      <PortfolioSummary />
+      {/* <PortfolioSummary /> */}
 
-      <FilterBar />
+      {/* <FilterBar /> */}
 
-      <PropertyGrid />
+      <PropertyGrid property={data.properties[0]} />
     </>
   );
 }
