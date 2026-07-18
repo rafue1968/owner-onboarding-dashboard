@@ -7,6 +7,7 @@ import data from "@/data/onboarding-data.json";
 import PortfolioSummary from "@/components/PortfolioSummary";
 import FilterBar from "@/components/FilterBar";
 import PropertyGrid from "@/components/PropertyGrid";
+import { filterProperties } from "@/utils/filterProperties";
 
 
 
