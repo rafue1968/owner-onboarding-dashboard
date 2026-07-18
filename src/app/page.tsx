@@ -1,5 +1,7 @@
-import Image from "next/image";
+"use client";
+
 import styles from "./page.module.css";
+import { useState } from "react";
 import Header from "../components/Header";
 import data from "@/data/onboarding-data.json";
 import PortfolioSummary from "@/components/PortfolioSummary";
@@ -10,9 +12,11 @@ import PropertyGrid from "@/components/PropertyGrid";
 
 export default function Home() {
 
+  
+
   const ownerName = data.owner.name
 
-  console.log(data.statusLegend);
+  // console.log(data.statusLegend);
 
   // data.properties.map((property) => {
   //   // console.log(property);
@@ -21,6 +25,12 @@ export default function Home() {
   //   });
   // })
 
+  const [filter, setFilter] = useState("all");
+
+  const filteredProperties = filterProperties(
+    data.properties,
+    filter
+  )
 
 
   return (
@@ -29,9 +39,9 @@ export default function Home() {
 
       {/* <PortfolioSummary /> */}
 
-      {/* <FilterBar /> */}
+      <FilterBar activeFilter={filter} setFilter={setFilter} />
 
-      <PropertyGrid property={data.properties[0]} />
+      <PropertyGrid properties={data.properties} />
     </>
   );
 }

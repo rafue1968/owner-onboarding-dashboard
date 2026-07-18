@@ -5,10 +5,10 @@ interface PropertyCardProps {
     propertyImage: string;
     propertyName: string;
     location: string;
-    bedrooms: string;
-    progressBar: number
+    bedrooms: number;
+    // progressBar: number
     progressPercentage: number;
-    statusBadge: string;
+    // statusBadge: string;
     targetGoLiveDate: string;
 }
 
@@ -18,15 +18,15 @@ export default function PropertyCard({
     propertyName,
     location,
     bedrooms,
-    progressBar,
+    // progressBar,
     progressPercentage,
-    statusBadge,
+    // statusBadge,
     targetGoLiveDate
 }: PropertyCardProps) {
 
     return (
         <div>
-            <Image src={propertyImage} alt={propertyName}/>
+            <Image src={propertyImage} alt={propertyName} width={300} height={300} />
             <h2>{propertyName}</h2>
             <p>{location}</p>
             <p>{bedrooms} bedrooms</p>
