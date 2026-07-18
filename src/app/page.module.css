@@ -1,10 +1,8 @@
 .page {
   --background: #fafafa;
   --foreground: #fff;
-
   --text-primary: #000;
   --text-secondary: #666;
-
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
   --button-secondary-border: #ebebeb;
@@ -22,104 +20,329 @@
   display: flex;
   flex: 1;
   width: 100%;
-  max-width: 800px;
+  max-width: 960px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   background-color: var(--foreground);
-  padding: 120px 60px;
+  padding: 48px 24px 80px;
 }
 
-.intro {
+.mainContent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  width: 100%;
   gap: 24px;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.summarySection,
+.filterBar,
+.propertyCard,
+.modalCard {
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
+.summarySection {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.sectionHeading p {
+  margin: 4px 0 0;
   color: var(--text-secondary);
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
+.summaryGrid {
+  display: grid;
   gap: 16px;
-  font-size: 14px;
 }
 
-.ctas a {
+.progressCard,
+.statCard {
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 16px;
+  background: #fcfcfc;
+}
+
+.progressMeta {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
+.progressTrack {
+  height: 8px;
+  border-radius: 999px;
+  background: #ececec;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2f6fed, #4cc4a7);
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statCard span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.statCard h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #ececec;
+}
+
+.filterButton {
+  border: 1px solid #d8d8d8;
+  border-radius: 999px;
+  background: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.filterButtonActive {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.propertyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.propertyCard {
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  background: #fff;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.propertyImage,
+.propertyImagePlaceholder {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+.propertyImagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.propertyBody {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.propertyHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.propertyHeader h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.propertyBody p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.statusLive {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.statusInProgress {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.statusNeedsAttention {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.statusNotStarted {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.emptyState {
+  border: 1px dashed #d8d8d8;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(17, 24, 39, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 20;
+}
+
+.modalCard {
+  width: min(720px, 100%);
+  max-height: 80vh;
+  overflow: auto;
+  border-radius: 20px;
+  background: #fff;
+  padding: 24px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.modalHeader h2 {
+  margin: 0;
+}
+
+.modalHeader p {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+}
+
+.modalClose {
+  border: 1px solid #d8d8d8;
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklistItem {
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.checklistContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.checklistStatus {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.checklistNote {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 800px) {
+  .propertyGrid {
+    grid-template-columns: 1fr;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .statGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
   .main {
-    padding: 48px 24px;
+    padding: 24px 16px 48px;
   }
 
-  .intro {
-    gap: 16px;
+  .summarySection {
+    padding: 16px;
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalHeader,
+  .checklistContent {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -131,12 +354,43 @@ a.secondary {
   .page {
     --background: #000;
     --foreground: #000;
-
     --text-primary: #ededed;
     --text-secondary: #999;
-
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
     --button-secondary-border: #1a1a1a;
+  }
+
+  .summarySection,
+  .filterBar,
+  .propertyCard,
+  .modalCard,
+  .statCard,
+  .progressCard,
+  .checklistItem {
+    background: #111827;
+    border-color: #1f2937;
+    color: #f9fafb;
+  }
+
+  .filterButton,
+  .modalClose {
+    background: #111827;
+    color: #f9fafb;
+    border-color: #374151;
+  }
+
+  .propertyImagePlaceholder {
+    background: #1f2937;
+    color: #d1d5db;
+  }
+
+  .propertyBody p,
+  .sectionHeading p,
+  .statCard span,
+  .checklistNote,
+  .modalHeader p,
+  .checklistStatus {
+    color: #9ca3af;
   }
 }

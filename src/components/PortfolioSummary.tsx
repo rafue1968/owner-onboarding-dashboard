@@ -1,57 +1,55 @@
-interface PortfolioSummaryProps{
+import styles from "@/app/page.module.css";
+
+interface PortfolioSummaryProps {
     summary: {
         totalProperties: number;
         liveProperties: number;
         needsAttention: number;
+        inProgressProperties: number;
         overallProgress: number;
-    }
+    };
 }
 
-export default function PortfolioSummary({
-    summary
-}: PortfolioSummaryProps
-){
+export default function PortfolioSummary({ summary }: PortfolioSummaryProps) {
     return (
-        <section>
-            <div>
-                <h2>Portfolio Overview</h2>
-                <p>Track onboarding progress across your properties</p>
+        <section className={styles.summarySection}>
+            <div className={styles.sectionHeading}>
+                <h2>Portfolio overview</h2>
+                <p>See how the onboarding pipeline is tracking across the portfolio.</p>
             </div>
 
-            <div>
-                <div>
-                    <span>Overall Progress</span>
-                    <strong>{overallProgress}%</strong>
+            <div className={styles.summaryGrid}>
+                <div className={styles.progressCard}>
+                    <div className={styles.progressMeta}>
+                        <span>Overall progress</span>
+                        <strong>{summary.overallProgress}%</strong>
+                    </div>
+                    <div className={styles.progressTrack}>
+                        <div className={styles.progressFill} style={{ width: `${summary.overallProgress}%` }} />
+                    </div>
                 </div>
 
-                <div>
-                    <div
-                    
-                    />
-                </div>
-
-                <div>
-                    <StatCard label="Total Properties" value={totalProperties}/>
-                    <StatCard label="Live" value={liveProperties}/>
-                    <StatCard label="In Progress" value={inProgressProperties}/>
-                    <StatCard label="Needs Attention" value={needsAttentionProperties} />
+                <div className={styles.statGrid}>
+                    <StatCard label="Total properties" value={summary.totalProperties} />
+                    <StatCard label="Live" value={summary.liveProperties} />
+                    <StatCard label="In progress" value={summary.inProgressProperties} />
+                    <StatCard label="Needs attention" value={summary.needsAttention} />
                 </div>
             </div>
         </section>
-    )
+    );
 }
-
 
 interface StatCardProps {
     label: string;
     value: number;
 }
 
-function StatCard({label, value}: StatCardProps){
+function StatCard({ label, value }: StatCardProps) {
     return (
-        <div>
+        <div className={styles.statCard}>
             <span>{label}</span>
             <h3>{value}</h3>
         </div>
-    )
+    );
 }
