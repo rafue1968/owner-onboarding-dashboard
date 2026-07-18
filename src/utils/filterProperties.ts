@@ -1,4 +1,5 @@
 import { Property } from "@/types/onboarding";
+import { getPropertyStatus } from "./getPropertyStatus";
 
 // interface PropertiesProps {
 //     properties: Property[];
@@ -18,7 +19,8 @@ export function filterProperties(properties: Property[], filter: PropertyFilter)
     }
 
     return properties.filter((property) => {
-        // const propertyStatus = property.
+        const status = getPropertyStatus(property, filter);
+        return status === filter;
     })
 
 

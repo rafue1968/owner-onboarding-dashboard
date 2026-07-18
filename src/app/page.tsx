@@ -7,7 +7,7 @@ import data from "@/data/onboarding-data.json";
 import PortfolioSummary from "@/components/PortfolioSummary";
 import FilterBar from "@/components/FilterBar";
 import PropertyGrid from "@/components/PropertyGrid";
-import { filterProperties } from "@/utils/filterProperties";
+import { filterProperties, PropertyFilter } from "@/utils/filterProperties";
 
 
 
@@ -17,16 +17,7 @@ export default function Home() {
 
   const ownerName = data.owner.name
 
-  // console.log(data.statusLegend);
-
-  // data.properties.map((property) => {
-  //   // console.log(property);
-  //   property.steps.map((step) => {
-  //     console.log(step);
-  //   });
-  // })
-
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState<PropertyFilter>("all");
 
   const filteredProperties = filterProperties(
     data.properties,
@@ -42,7 +33,7 @@ export default function Home() {
 
       <FilterBar activeFilter={filter} setFilter={setFilter} />
 
-      <PropertyGrid properties={data.properties} />
+      <PropertyGrid properties={filteredProperties} />
     </>
   );
 }
