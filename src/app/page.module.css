@@ -1,37 +1,66 @@
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
-  --text-primary: #000;
-  --text-secondary: #666;
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+  min-height: 100vh;
   display: flex;
-  flex: 1;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-family: var(--font-geist-sans);
-  background-color: var(--background);
+}
+
+.header {
+  background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 55%, #0f766e 100%);
+  color: #fff;
+  padding: 28px clamp(24px, 4vw, 48px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+}
+
+.headerContent {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.headerTitle h1 {
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  margin: 0 0 4px;
+}
+
+.headerTitle p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+}
+
+.headerUser {
+  text-align: right;
+}
+
+.headerUser span {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.headerUser h2 {
+  margin: 0;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
 }
 
 .main {
   display: flex;
   flex: 1;
   width: 100%;
-  max-width: 960px;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 48px 24px 80px;
+  padding: 32px clamp(24px, 4vw, 48px) 72px;
 }
 
 .mainContent {
+  width: min(1280px, 100%);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 24px;
 }
 
@@ -39,13 +68,13 @@
 .filterBar,
 .propertyCard,
 .modalCard {
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
 }
 
 .summarySection {
-  background: #fff;
-  border: 1px solid #ececec;
-  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -55,6 +84,7 @@
 .sectionHeading h2 {
   margin: 0;
   font-size: 1.2rem;
+  color: var(--foreground);
 }
 
 .sectionHeading p {
@@ -69,10 +99,10 @@
 
 .progressCard,
 .statCard {
-  border: 1px solid #f0f0f0;
-  border-radius: 16px;
+  border: 1px solid #edf2f7;
+  border-radius: 18px;
   padding: 16px;
-  background: #fcfcfc;
+  background: linear-gradient(145deg, #ffffff 0%, #f9fbff 100%);
 }
 
 .progressMeta {
@@ -82,19 +112,25 @@
   gap: 12px;
   margin-bottom: 8px;
   font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.progressMeta strong {
+  color: var(--accent-strong);
+  font-size: 1rem;
 }
 
 .progressTrack {
   height: 8px;
   border-radius: 999px;
-  background: #ececec;
+  background: #e2e8f0;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #2f6fed, #4cc4a7);
+  background: linear-gradient(90deg, var(--accent) 0%, #2dd4bf 100%);
 }
 
 .statGrid {
@@ -117,6 +153,7 @@
 .statCard h3 {
   margin: 0;
   font-size: 1.3rem;
+  color: var(--foreground);
 }
 
 .filterBar {
@@ -124,23 +161,30 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 14px;
-  border-radius: 16px;
-  background: #fff;
-  border: 1px solid #ececec;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--border);
 }
 
 .filterButton {
-  border: 1px solid #d8d8d8;
+  border: 1px solid #dbe4f0;
   border-radius: 999px;
   background: #fff;
   padding: 8px 12px;
   cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 180ms ease;
+}
+
+.filterButton:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .filterButtonActive {
-  background: #111827;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
   color: #fff;
-  border-color: #111827;
+  border-color: var(--accent);
 }
 
 .propertyGrid {
@@ -150,23 +194,29 @@
 }
 
 .propertyCard {
-  border: 1px solid #ececec;
-  border-radius: 18px;
-  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
   padding: 0;
   text-align: left;
   cursor: pointer;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.propertyCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
 }
 
 .propertyImage,
 .propertyImagePlaceholder {
   width: 100%;
-  height: 160px;
+  height: 170px;
   object-fit: cover;
-  background: #f3f4f6;
+  background: linear-gradient(135deg, #e8f1ff 0%, #e2e8f0 100%);
 }
 
 .propertyImagePlaceholder {
@@ -174,6 +224,7 @@
   align-items: center;
   justify-content: center;
   color: #6b7280;
+  font-weight: 600;
 }
 
 .propertyBody {
@@ -193,6 +244,7 @@
 .propertyHeader h3 {
   margin: 0;
   font-size: 1rem;
+  color: var(--foreground);
 }
 
 .propertyBody p {
@@ -231,18 +283,19 @@
 }
 
 .emptyState {
-  border: 1px dashed #d8d8d8;
+  border: 1px dashed #cbd5e1;
   border-radius: 16px;
   padding: 24px;
   text-align: center;
   color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .modalBackdrop {
   position: fixed;
   inset: 0;
   backdrop-filter: blur(4px);
-  background: rgba(17, 24, 39, 0.45);
+  background: rgba(15, 23, 42, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,6 +310,22 @@
   border-radius: 20px;
   background: #fff;
   padding: 24px;
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .headerUser {
+    text-align: left;
+  }
+
+  .statGrid,
+  .propertyGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .modalHeader {

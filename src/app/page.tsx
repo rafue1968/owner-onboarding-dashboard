@@ -21,7 +21,7 @@ export default function Home() {
   const filteredProperties = filterProperties(data.properties, filter);
 
   return (
-    <>
+    <div className={styles.page}>
       <Header ownerName={ownerName} />
 
       <main className={styles.main}>
@@ -37,6 +37,6 @@ export default function Home() {
         onClose={() => setSelectedProperty(null)}
         stepDefinitions={data.onboardingStepDefinitions}
       />
-    </>
+    </div>
   );
 }
