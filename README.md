@@ -132,6 +132,13 @@ AI conversation transcripts are included in the following folder:
 ai-sessions
 ```
 
+---
+
+## Honest note on AI usage
+
+I relied heavily on ChatGPT as a development assistant throughout this exercise. It helped with implementation guidance, component structure, debugging, and UI refinement. I manually integrated, tested, and adjusted the resulting code. I’m comfortable explaining the final implementation and discussing the design decisions made.
+
+
 ## Notes
 
 This project was completed as part of the Madestays Junior Software Engineer take-home assessment.

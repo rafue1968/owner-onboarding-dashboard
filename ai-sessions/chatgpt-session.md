@@ -1,5 +1,11 @@
 # ChatGPT session
 
+## Honest summary of AI usage
+
+I used ChatGPT as a development assistant throughout this exercise. It helped with requirement clarification, implementation guidance, debugging, and UI refinement. I then manually integrated, tested, and adjusted the code to fit the project.
+
+I’m comfortable explaining the final implementation and discussing the design choices that were made. The goal of this record is to be transparent about how AI was used in the workflow.
+
 ## Shared conversation
 
 This session was used during the early stages of the project to review the onboarding dashboard requirements and clarify the expected user experience.

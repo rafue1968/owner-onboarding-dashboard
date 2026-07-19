@@ -1,21 +1,17 @@
 # AI agent session
 
-## AI usage summary
+## Honest summary of AI usage
 
-This project was completed with the assistance of GitHub Copilot (Agent Mode). I primarily used the agentic AI capabilities to speed up development. After AI-assisted development was complete, I made sure to review and validate the designs and generated code.
+I relied heavily on GitHub Copilot Agent Mode during this exercise. It helped with implementation guidance, component structure, debugging, and UI refinement, while I manually reviewed, integrated, tested, and adjusted the code.
 
-The AI was used to accelerate implementation rather than replace my understanding of the project. In particular, it assisted with:
+I’m comfortable explaining the final implementation and the design decisions behind it. The important point is that AI accelerated development, but the final result was shaped and verified by me.
 
-- Rendering the portfolio of properties from the provided onboarding data.
-- Implementing the property detail view, including the onboarding checklist and associated notes.
-- Implementing property filtering by onboarding status.
-- Calculating and displaying the portfolio progress summary.
-- Calculating the total number of properties.
-- Calculating the number of properties by category (Live, In Progress, and Needs Attention).
-- Improving the dashboard styling and visual hierarchy with a more appropriate owner onboarding colour palette.
-- Fixing the page layout so the dashboard correctly uses the full desktop viewport instead of rendering in a constrained container.
+## What the AI helped with
 
-I reviewed the changes AI integrated into the project and verified that it aligned with at least most of the project requirements.
+- suggesting component structure and app wiring
+- supporting debugging and type issues
+- helping refine the dashboard UI and layout
+- speeding up implementation of summary, filters, and detail views
 
 ## Conversation transcript
 
