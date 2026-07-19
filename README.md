@@ -136,3 +136,13 @@ ai-sessions
 
 This project was completed as part of the Madestays Junior Software Engineer take-home assessment.
 
+```
+owner-onboarding-dashboard
+│
+├── ai-sessions
+│ └── chatgpt-session.md
+│
+├── src
+├── README.md
+└── package.json
+```
