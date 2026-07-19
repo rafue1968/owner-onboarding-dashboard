@@ -1,5 +1,22 @@
 # AI agent session
 
+## AI usage summary
+
+This project was completed with the assistance of GitHub Copilot (Agent Mode). I primarily used the agentic AI capabilities to speed up development. After AI-assisted development was complete, I made sure to review and validate the designs and generated code.
+
+The AI was used to accelerate implementation rather than replace my understanding of the project. In particular, it assisted with:
+
+- Rendering the portfolio of properties from the provided onboarding data.
+- Implementing the property detail view, including the onboarding checklist and associated notes.
+- Implementing property filtering by onboarding status.
+- Calculating and displaying the portfolio progress summary.
+- Calculating the total number of properties.
+- Calculating the number of properties by category (Live, In Progress, and Needs Attention).
+- Improving the dashboard styling and visual hierarchy with a more appropriate owner onboarding colour palette.
+- Fixing the page layout so the dashboard correctly uses the full desktop viewport instead of rendering in a constrained container.
+
+I reviewed the changes AI integrated into the project and verified that it aligned with at least most of the project requirements.
+
 ## Conversation transcript
 
 ### User
@@ -54,5 +71,91 @@ Verification:
 - A full Next.js build could not be run here because the environment does not currently have Node/npm available; the terminal returned npm: command not found.
 
 If you want to view it locally once Node is available, run npm install and then npm run dev.
+
+Made changes.
+
+---
+
+## Additional AI session
+
+### User
+Make the website look better. Ensure colours are appropriate for an Owner Onboarding Dashboard and fix the half-size issue with the page as when I view it in desktop full-screen, it shows the website is rendered half of the whole screen!
+
+### GitHub Copilot
+Optimized tool selection
+
+I’m reviewing the app layout and styling now so I can fix the page sizing issue and refresh the visual design in a cohesive way.
+
+Read `src/app/layout.tsx`
+
+Read `src/app/page.tsx`
+
+Read `src/app/globals.css`
+
+Read `src/app/page.module.css` (lines 1–260)
+
+The current styles are quite bare, and I’m adjusting the shell so the dashboard uses the full viewport rather than feeling compressed.
+
+Read `src/components/Header.tsx`
+
+Read `src/components/PortfolioSummary.tsx`
+
+Read `package.json`
+
+I’ve isolated the layout constraint that was keeping the dashboard narrow, and I’m replacing it with a fuller, more polished shell and card styling.
+
+Replacing 351 lines with 421 lines in:
+- `src/app/globals.css`
+- `src/app/page.module.css`
+- `src/components/Header.tsx`
+- `src/app/page.tsx`
+
+The main layout is now using full-width containers and a stronger visual system; I’m validating the build so I can confirm there are no regressions.
+
+Ran terminal command:
+`cd "c:/Users/rafue/Desktop/owner-onboarding-dashboard" && npm run build`
+
+Completed with input:
+`cd "c:/Users/rafue/Desktop/owner-onboarding-dashboard" && npm run build`
+
+Ran terminal command:
+`cd "c:/Users/rafue/Desktop/owner-onboarding-dashboard" && (which node && node -v && which npm) || (where.exe node || true) && (where.exe npm || true)`
+
+The code changes are in place; I’m checking the local environment for Node so I can verify the app end to end.
+
+Ran terminal command:
+`cmd.exe /c "where node && where npm && node -v && npm -v"`
+
+Checked terminal output.
+
+Checked:
+- `src/app/globals.css`
+- `src/app/page.module.css`
+- `src/components/Header.tsx`
+- `src/app/page.tsx`
+
+No problems found.
+
+## Dashboard refreshed
+
+The layout issue came from the page shell being constrained to a narrow centered container, so I updated it to use the full viewport width and gave the dashboard a more polished owner-portal look.
+
+### What changed
+
+- The page now uses a full-width shell so the dashboard fills the desktop screen instead of feeling compressed.
+- The visual style now uses a more appropriate blue/teal palette for an owner onboarding experience.
+- The header, summary cards, filters, and property cards were restyled to feel cleaner and more modern.
+
+### Updated files
+
+- `globals.css`
+- `page.module.css`
+- `Header.tsx`
+- `page.tsx`
+
+### Verification
+
+- Editor checks report no errors in the updated files.
+- A full build could not be run here because Node/npm are not available in the current terminal environment.
 
 Made changes.
